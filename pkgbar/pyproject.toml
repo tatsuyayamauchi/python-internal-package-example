@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pkgbar"
+dynamic = ["version"]
+description = "Internal package for bar functionality"
+readme = "README.md"
+authors = [
+    {name = "TatsuyaYamauchi"}
+]
+license = "MIT"
+requires-python = ">=3.8"
+dependencies = [
+    "pkgfoo @ git+https://github.com/tatsuyayamauchi/python-internal-package-example.git#subdirectory=pkgfoo",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/tatsuyayamauchi/python-internal-package-example"
+"Bug Reports" = "https://github.com/tatsuyayamauchi/python-internal-package-example/issues"
+"Source" = "https://github.com/tatsuyayamauchi/python-internal-package-example/tree/main/pkgbar"
+
+[tool.setuptools.dynamic]
+version = {attr = "pkgbar.__version__"}
