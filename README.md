@@ -19,7 +19,7 @@ Python のパッケージを内部用に配信するためのサンプル実装
 1. リポジトリをクローンする
 
    ```bash
-   git clone <repository-url>
+   git clone git@github.com:tatsuyayamauchi/python-internal-package-example.git
    cd python-internal-package-example
    ```
 
@@ -29,21 +29,37 @@ Python のパッケージを内部用に配信するためのサンプル実装
    python --version  # 3.13.6 であることを確認
    ```
 
-3. 各パッケージを開発モードでインストールする
+3. ビルドツールをインストールする
 
    ```bash
-   # pkgfoo パッケージをインストール
+   pip install build
+   ```
+
+4. 各パッケージの wheel を作成する
+
+   ```bash
+   # pkgfoo パッケージのwheelを作成
    cd pkgfoo
-   pip install -e .
+   python -m build
    cd ..
 
-   # pkgbar パッケージをインストール
+   # pkgbar パッケージのwheelを作成
    cd pkgbar
-   pip install -e .
+   python -m build
    cd ..
    ```
 
-4. サンプルアプリケーションを実行する
+5. 作成した wheel ファイルをインストールする
+
+   ```bash
+   # pkgfoo パッケージをインストール
+   pip install pkgfoo/dist/pkgfoo-*.whl
+
+   # pkgbar パッケージをインストール
+   pip install pkgbar/dist/pkgbar-*.whl
+   ```
+
+6. サンプルアプリケーションを実行する
    ```bash
    python example/main.py
    ```
