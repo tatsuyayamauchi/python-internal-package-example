@@ -13,7 +13,7 @@ authors = [
 license = "MIT"
 requires-python = ">=3.8"
 dependencies = [
-    "pkgfoo @ git+https://github.com/tatsuyayamauchi/python-internal-package-example.git#subdirectory=pkgfoo",
+    "pkgfoo",
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
